@@ -1,0 +1,22 @@
+.div__page {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  .div__content {
+    width: 100%;
+    height: calc(100% - 7.5rem);
+    background-color: #f0f0f0;
+    display: table;
+    text-align: center;
+    .span__empty-text {
+      letter-spacing: 5px;
+      display: table-cell;
+      vertical-align: middle;
+      color: rgba(220,210,212,0.8);
+    }
+  }
+}
+

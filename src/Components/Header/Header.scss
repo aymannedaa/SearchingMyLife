@@ -1,0 +1,36 @@
+$header-background-color: rgba(68,132,206, 1.0);
+$header-text-color: rgba(220, 231, 248, 0.9);
+.div__header__container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $header-background-color;
+  height: 3.5rem;
+  color: $header-text-color;
+  letter-spacing: 3px;
+  span {
+    margin: 0 0.5rem;
+  }
+  .div__header__brand {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    color: $header-text-color;
+    margin: 0 0.5rem;
+    font-size: 14px;
+  }
+  .div__header__items {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 0.5rem;
+    font-size: 12px;
+    .link {
+      cursor: pointer;
+    }
+  }
+}

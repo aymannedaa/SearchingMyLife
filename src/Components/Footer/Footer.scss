@@ -1,0 +1,25 @@
+@import '../../input';
+$footer-background-color: rgb(64,125,208);
+$footer-text-color: rgba(220, 231, 248, 0.9);
+.div__footer__container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $footer-background-color;
+  height: 2rem;
+  color: $footer-text-color;
+  letter-spacing: 3px;
+
+  .div__footer__searchbox {
+    width: 70%;
+    color: $footer-text-color;
+    margin: 0 0.5rem;
+    font-size: 15px;
+    input[type="text"] {
+      @include input-box;
+      color: $footer-text-color;
+    }
+  }
+}

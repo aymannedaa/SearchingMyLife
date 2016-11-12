@@ -1,0 +1,17 @@
+@import '../../input';
+
+.div__searchbox {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  input[type="text"] {
+    @include input-box;
+    margin: 0 1rem;
+    width: 100%;
+    font-size: 13px;
+  }
+}
