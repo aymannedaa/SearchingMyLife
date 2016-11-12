@@ -30,6 +30,13 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/search/words/:word', (req, res) => {
+  console.log(req.params.word);
+  let responseData = data.getData();
+  console.log(responseData);
+  res.send(responseData);
+});
+
 app.listen(PORT, (err) => {
   if(err) {
     console.log(err);
