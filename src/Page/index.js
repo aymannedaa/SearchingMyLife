@@ -11,14 +11,20 @@ require('./Page.scss');
 export default class Page extends Component {
   constructor() {
     super();
+    this.state = {data: null};
+    this.updateComponent = this.updateComponent.bind(this);
+  }
+
+  updateComponent() {
+    this.setState({data: store.getData()});
   }
 
   render() {
     return (
       <div className="div__page">
         <Header username="Sayantan"></Header>
-        <SearchBox></SearchBox>
-        <View />
+        <SearchBox update={this.updateComponent}></SearchBox>
+        <View data={this.state.data}/>
         <Footer></Footer>
       </div>
     );

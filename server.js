@@ -1,5 +1,6 @@
 'use strict';
 
+let fs = require('fs');
 let express = require('express');
 let path = require('path');
 let httpProxy = require('http-proxy');
@@ -10,7 +11,7 @@ let data = require(__dirname + '/server/data');
 const PORT = 3333;
 const app = express();
 
-app.use('/images', express.static(__dirname + '/dist/media'));
+app.use('/audio', express.static(__dirname + '/media/audio'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
 let bundle = require('./server/webpack.bundle.js');
@@ -36,6 +37,18 @@ app.get('/search/words/:word', (req, res) => {
   console.log(responseData);
   res.send(responseData);
 });
+
+var streamAudio = function(req,res) {
+    var filePath = __dirname + '/media/audio/file.mp3';
+    var stat = fs.statSync(filePath);
+    res.writeHead(200, {
+        'Content-Type': 'audio/mpeg',
+        'Content-Length': stat.size
+    });
+    // We replaced all the event handlers with a simple call to util.pump()
+    fs.createReadStream(filePath).pipe(res);
+};
+app.get("/streamaudio/:filename", streamAudio)
 
 app.listen(PORT, (err) => {
   if(err) {

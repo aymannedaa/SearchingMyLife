@@ -10,10 +10,10 @@ export default class Header extends Component {
     return (
       <div className="div__header__container">
         <div className="div__header__brand">
-          <span className="link">Searching My Life</span>
+          <span className="span-text-item">Searching My Life</span>
         </div>
         <div className="div__header__items">
-          {this.props.username} <span className="link">Logout</span>
+          {this.props.username} <span className="span-text-item link">Logout</span>
         </div>
       </div>
     );

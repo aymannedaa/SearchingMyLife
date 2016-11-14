@@ -6,8 +6,10 @@ require('./SearchBox.scss');
 export default class SearchBox extends Component {
   constructor() {
     super();
+    this.search = this.search.bind(this);
   }
   search(event) {
+    const that = this;
     if(event.keyCode === 13) {
       $.ajax({
         url: '/search/words/' + $(event.target).val(),
@@ -15,6 +17,7 @@ export default class SearchBox extends Component {
       }).done((data) => {
         store.setData(data);
         console.log(store.getData());
+        that.props.update();
       }).fail((err) => {
         console.log(err);
       });
