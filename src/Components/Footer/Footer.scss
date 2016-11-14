@@ -19,4 +19,10 @@ $footer-text-color: rgba(220, 231, 248, 0.9);
       color: $footer-text-color;
     }
   }
+  .div__footer__player {
+    margin: 0 0.5rem;
+    width: 15%;
+    display: table;
+    height: 80%;
+  }
 }

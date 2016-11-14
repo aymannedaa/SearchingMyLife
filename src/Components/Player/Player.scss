@@ -1,0 +1,23 @@
+.div__player {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .div__player__progressbar {
+    height: 0.1rem;
+    background-color: #FFF;
+    width: 80%;
+    margin: auto;
+  }
+  .div__player__slider {
+    border: 1px solid;
+    border-radius: 100%;
+    background-color: #FFF;
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    //top: 50%;
+    margin-top: -0.25rem;
+  }
+}

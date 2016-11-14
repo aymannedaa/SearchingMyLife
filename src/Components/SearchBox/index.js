@@ -16,7 +16,6 @@ export default class SearchBox extends Component {
         type: 'GET',
       }).done((data) => {
         store.setData(data);
-        console.log(store.getData());
         that.props.update();
       }).fail((err) => {
         console.log(err);

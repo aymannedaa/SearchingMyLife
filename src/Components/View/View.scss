@@ -6,7 +6,7 @@ $empty-text-color: rgba(220,210,212,0.8);
     width: 100%;
     height: calc(100% - 7.5rem);
     &.filled {
-      @include flexbox(row, wrap, flex-start, flex-start);
+      @include flexbox(row, wrap, center, flex-start);
     }
     &.empty {
       display: table;

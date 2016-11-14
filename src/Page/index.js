@@ -43,8 +43,7 @@ export default class Page extends Component {
   }
 
   playSelectedAudio(audioMetaData) {
-
-    this.setState({nowPlaying: audioMetaData.filename});
+    this.setState({nowPlaying: audioMetaData});
   }
 
   render() {
@@ -53,7 +52,7 @@ export default class Page extends Component {
         <Header username="Sayantan"></Header>
         <SearchBox update={this.displaySearchResults}></SearchBox>
         <View data={this.state.data} play={this.playSelectedAudio}/>
-        <Footer></Footer>
+        <Footer nowPlaying={this.state.nowPlaying}></Footer>
       </div>
     );
   }

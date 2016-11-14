@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Player from '../Player';
 import $ from 'jquery';
 require('./Footer.scss');
 
@@ -13,7 +14,7 @@ export default class Footer extends Component {
           <input type="text" placeholder="Filter results"/>
         </div>
         <div className="div__footer__player">
-
+          <Player nowPlaying={this.props.nowPlaying}></Player>
         </div>
       </div>
     );
