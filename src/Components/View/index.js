@@ -13,7 +13,7 @@ export default class View extends Component {
     if(this.props.data) {
       blips = this.props.data.map((item, index) => {
         return (
-          <Blip key={index} data={item}></Blip>
+          <Blip key={index} data={item} play={this.props.play}></Blip>
         );
       });
     }
