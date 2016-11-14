@@ -1,0 +1,95 @@
+.div__header__container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4484ce;
+  height: 3.5rem;
+  color: rgba(220, 231, 248, 0.9);
+  letter-spacing: 3px; }
+  .div__header__container span {
+    margin: 0 0.5rem; }
+  .div__header__container .div__header__brand {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    color: rgba(220, 231, 248, 0.9);
+    margin: 0 0.5rem;
+    font-size: 14px; }
+  .div__header__container .div__header__items {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 0.5rem;
+    font-size: 12px; }
+    .div__header__container .div__header__items .link {
+      cursor: pointer; }
+.div__searchbox {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center; }
+  .div__searchbox input[type="text"] {
+    outline: none;
+    width: 100%;
+    border: 0px solid;
+    background-color: transparent;
+    letter-spacing: 3px;
+    margin: 0 1rem;
+    width: 100%;
+    font-size: 13px; }
+.div__footer__container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #407dd0;
+  height: 2rem;
+  color: rgba(220, 231, 248, 0.9);
+  letter-spacing: 3px; }
+  .div__footer__container .div__footer__searchbox {
+    width: 70%;
+    color: rgba(220, 231, 248, 0.9);
+    margin: 0 0.5rem;
+    font-size: 15px; }
+    .div__footer__container .div__footer__searchbox input[type="text"] {
+      outline: none;
+      width: 100%;
+      border: 0px solid;
+      background-color: transparent;
+      letter-spacing: 3px;
+      color: rgba(220, 231, 248, 0.9); }
+.div__page {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch; }
+  .div__page .div__content {
+    width: 100%;
+    height: calc(100% - 7.5rem);
+    background-color: #f0f0f0;
+    display: table;
+    text-align: center; }
+    .div__page .div__content .span__empty-text {
+      letter-spacing: 5px;
+      display: table-cell;
+      vertical-align: middle;
+      color: rgba(220, 210, 212, 0.8); }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif; }
+
+html, body {
+  height: 100%; }
+
+#container {
+  height: 100%; }

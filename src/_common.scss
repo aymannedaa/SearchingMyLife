@@ -1,0 +1,39 @@
+@mixin flexbox ($orientation, $wrap, $justify-content, $align-items) {
+  display: flex;
+  flex-flow: $orientation $wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin input-box {
+  outline: none;
+  width: 100%;
+  border: 0px solid;
+  background-color: rgba(0, 0, 0, 0);
+  letter-spacing: 3px;
+}
+
+@mixin blip($background-color, $box-shadow-color, $margin) {
+  margin: $margin;
+  background-color: $background-color;
+  box-shadow: 0 2px 4px 0 $box-shadow-color;
+}
+
+@mixin span-block($margin, $font-size, $background-color) {
+  text-overflow: ellipsis;
+  margin: 0 $margin;
+  display: inline-block;
+  font-size: $font-size;
+  line-height: $font-size;
+}
+
+.span-text-item {
+  margin: 0 0.5rem;
+}
+
+.link {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+  }
+}

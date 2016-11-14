@@ -1,0 +1,21 @@
+@import '../../common';
+
+$empty-text-color: rgba(220,210,212,0.8);
+
+.div__content {
+    width: 100%;
+    height: calc(100% - 7.5rem);
+    &.filled {
+      @include flexbox(row, wrap, flex-start, flex-start);
+    }
+    &.empty {
+      display: table;
+      text-align: center;
+    }
+    .span__empty-text {
+      letter-spacing: 5px;
+      display: table-cell;
+      vertical-align: middle;
+      color: $empty-text-color;
+    }
+  }
