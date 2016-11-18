@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Listview from './Listview';
 import $ from 'jquery';
 require('./Blip.scss');
 
@@ -7,18 +8,36 @@ export default class Blip extends Component {
     super();
     this.state = {listView: false};
     this.showListview = this.showListview.bind(this);
+    this.closeListview = this.closeListview.bind(this);
     this.playAudio = this.playAudio.bind(this);
   }
 
-  componentWillMount() {
-    if(!this.state.listView) {
-      this.setState({data: this.props.data});
+  showListview(direction) {
+    const word = this.props.searchingFor;
+    let url = '';
+    if(direction === 'back') {
+      const timestamp = this.props.data.createdtime;
+      url = '/search/wordsbefore/' + word + '/' + timestamp;
     }
+    else if(direction === 'next') {
+      const timestamp = this.props.data.endtime;
+      url = '/search/wordsafter/' + word + '/' + timestamp;
+    }
+    $.ajax({
+      url: url,
+      type: 'GET',
+    }).done((data) => {
+      //store.setData(data);
+      //that.props.update();
+      this.setState({listView: true, listData: data});
+    }).fail((err) => {
+      console.log(err);
+    });
 
   }
 
-  showListview() {
-    this.setState({listView: true})
+  closeListview() {
+    this.setState({listView: false, listData: null});
   }
 
   playAudio() {
@@ -34,22 +53,22 @@ export default class Blip extends Component {
           <div>
             <div className="div__blip__header">
               <span>
-                {this.state.data.createdtime}
+                {this.props.data.createdtime}
               </span>
             </div>
             <div className="div__blip__body">
               <span>
-                {this.state.data.transcription}
+                {this.props.data.transcription}
               </span>
             </div>
             <div className="div__blip__ctrlbar">
-              <span className="span-text-item link" onClick={this.showListview}>
+              <span className="span-text-item link" onClick={() => this.showListview('back')}>
                 Back
               </span>
               <span className="span-text-item link" onClick={this.playAudio}>
                 Play
               </span>
-              <span className="span-text-item link" onClick={this.showListview}>
+              <span className="span-text-item link" onClick={() => this.showListview('next')}>
                 Next
               </span>
             </div>
@@ -58,9 +77,7 @@ export default class Blip extends Component {
       }
       else {
         blipView = (
-          <div>
-            ddd
-          </div>
+          <Listview list={this.state.listData} play={this.props.play} close={this.closeListview}></Listview>
         );
       }
 

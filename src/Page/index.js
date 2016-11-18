@@ -39,7 +39,7 @@ export default class Page extends Component {
   }
   */
   displaySearchResults() {
-    this.setState({data: store.getData()});
+    this.setState({searchingFor: store.getSearchingFor(), data: store.getData()});
   }
 
   playSelectedAudio(audioMetaData) {
@@ -51,7 +51,7 @@ export default class Page extends Component {
       <div className="div__page">
         <Header username="Sayantan"></Header>
         <SearchBox update={this.displaySearchResults}></SearchBox>
-        <View data={this.state.data} play={this.playSelectedAudio}/>
+        <View data={this.state.data} searchingFor={this.state.searchingFor} play={this.playSelectedAudio}/>
         <Footer nowPlaying={this.state.nowPlaying}></Footer>
       </div>
     );

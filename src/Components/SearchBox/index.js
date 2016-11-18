@@ -10,11 +10,13 @@ export default class SearchBox extends Component {
   }
   search(event) {
     const that = this;
+    const searchingFor = $(event.target).val();
     if(event.keyCode === 13) {
       $.ajax({
-        url: '/search/words/' + $(event.target).val(),
+        url: '/search/words/' + searchingFor,
         type: 'GET',
       }).done((data) => {
+        store.setSearchingFor(searchingFor);
         store.setData(data);
         that.props.update();
       }).fail((err) => {

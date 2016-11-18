@@ -40,7 +40,7 @@ export default class Player extends Component {
 
   showPlaybackTime() {
     this.audioTimer += 0.01;
-    console.log('Playback time ' + this.audioTimer);
+    //console.log('Playback time ' + this.audioTimer);
   }
 
   getAudio() {
@@ -81,7 +81,7 @@ export default class Player extends Component {
 
   componentDidMount() {
     const sliderWidth = $(this.refs.progress_bar).width();
-    console.log(sliderWidth);
+    //console.log(sliderWidth);
     this.sliderMoveBy = parseFloat(sliderWidth) / 1239;
   }
 

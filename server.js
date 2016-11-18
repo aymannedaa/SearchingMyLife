@@ -32,6 +32,20 @@ app.get('/', (req, res) => {
 });
 
 app.get('/search/words/:word', (req, res) => {
+  //console.log(req.params.word);
+  let responseData = data.getData();
+  //console.log(responseData);
+  res.send(responseData);
+});
+
+app.get('/search/wordsbefore/:word/:timestamp', (req, res) => {
+  console.log(req.params.word);
+  let responseData = data.getData();
+  console.log(responseData);
+  res.send(responseData);
+});
+
+app.get('/search/wordsafter/:word/:timestamp', (req, res) => {
   console.log(req.params.word);
   let responseData = data.getData();
   console.log(responseData);
