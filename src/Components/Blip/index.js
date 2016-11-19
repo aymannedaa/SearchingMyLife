@@ -17,11 +17,11 @@ export default class Blip extends Component {
     let url = '';
     if(direction === 'back') {
       const timestamp = this.props.data.createdtime;
-      url = '/search/wordsbefore/' + word + '/' + timestamp;
+      url = '/search/before/' + timestamp;
     }
     else if(direction === 'next') {
       const timestamp = this.props.data.endtime;
-      url = '/search/wordsafter/' + word + '/' + timestamp;
+      url = '/search/after/' + timestamp;
     }
     $.ajax({
       url: url,
