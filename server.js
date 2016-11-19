@@ -14,7 +14,7 @@ const app = express();
 app.use('/audio', express.static(__dirname + '/media/audio'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
-if(app.get('env') === 'production') {
+if(app.get('env') === 'development') {
   let bundle = require('./server/webpack.bundle.js');
   bundle();
 
