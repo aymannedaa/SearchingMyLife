@@ -33,6 +33,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/username', (req, res) => {
+  res.send({username: 'Who are you?'});
+});
+
 app.get('/search/words/:word', (req, res) => {
   //console.log(req.params.word);
   let responseData = data.getData();
