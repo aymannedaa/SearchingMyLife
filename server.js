@@ -14,14 +14,16 @@ const app = express();
 app.use('/audio', express.static(__dirname + '/media/audio'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
-let bundle = require('./server/webpack.bundle.js');
-bundle();
+if(app.get('env') === 'production') {
+  let bundle = require('./server/webpack.bundle.js');
+  bundle();
 
-app.all('/dist/*', (req, res) => {
-  proxy.web(req, res, {
-    target: 'http://localhost:8888'
+  app.all('/dist/*', (req, res) => {
+    proxy.web(req, res, {
+      target: 'http://localhost:8888'
+    });
   });
-});
+}
 
 proxy.on('error', (err) => {
   console.log('Could not connect to proxy');

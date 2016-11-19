@@ -6,6 +6,8 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src', 'app.js');
 const distPath = path.resolve(__dirname, 'dist');
 
+const production = true;
+
 module.exports = {
   devtool: 'eval',
   entry: [
@@ -15,7 +17,7 @@ module.exports = {
   ],
   output: {
     path: distPath,
-    filename: 'bundle.js'
+    filename: production ? 'bundle.min.js' : 'bundle.js'
   },
   module: {
     loaders: [{
@@ -31,7 +33,17 @@ module.exports = {
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
     }]
   },
-  plugins: [
+  plugins: production ? [
+    new Webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin('styles/[name].min.css', {
+      allChunks: true
+    }),
+    new Webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ] : [
     new Webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('styles/[name].css', {
       allChunks: true

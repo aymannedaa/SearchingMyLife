@@ -4,7 +4,7 @@
   "description": "A project to search into your past",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "NODE_ENV=production node server",
     "test": "webpack",
     "build": "webpack"
   },
