@@ -6,13 +6,13 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src', 'app.js');
 const distPath = path.resolve(__dirname, 'dist');
 
-const production = false;
+const production = true;
 
 module.exports = {
   devtool: 'eval',
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8888',
+    //'webpack/hot/dev-server',
+    //'webpack-dev-server/client?http://localhost:8888',
     srcPath
   ],
   output: {
@@ -34,7 +34,7 @@ module.exports = {
     }]
   },
   plugins: production ? [
-    new Webpack.HotModuleReplacementPlugin(),
+    //new Webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('styles/[name].min.css', {
       allChunks: true
     }),
@@ -44,7 +44,7 @@ module.exports = {
       }
     })
   ] : [
-    new Webpack.HotModuleReplacementPlugin(),
+    //new Webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('styles/[name].css', {
       allChunks: true
     })
