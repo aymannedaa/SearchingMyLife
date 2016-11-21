@@ -4,41 +4,64 @@ $blip-background-color: rgb(249,250,252);
 //$blip-background-color: rgba(114,120,152, 0.6);
 $blip-header-background-color: rgba(221,227,234, 0.5);
 $blip-box-shadow-color: rgba(0, 0, 0, 0.2);
-
+$blip-text-color: rgb(143,150,159);
+$section-text-color-main: rgb(136,94,245);
+$section-text-color-sub: rgb(160,200,254);
+$section-text-color-subsub: rgba(75,29,97, 0.6);
 .div__blip {
   width: 13rem;
   height: 5.5rem;
   padding: 0.5rem;
   @include blip($blip-background-color, $blip-box-shadow-color, 0.5rem);
   @include flexbox(column, nowrap, flex-start, center);
-  .div__blip__header {
+  color: $blip-text-color;
+  div {
     width: 100%;
-    height: 1.5rem;
-    border-bottom: 1px solid;
-    border-bottom-color: $blip-header-background-color;
-    span {
-      @include span-block(0.5rem, 10px, #DDE3EA);
+    height: 100%;
+    .div__blip__header {
+      width: 100%;
+      height: 1.5rem;
+      border-bottom: 1px solid;
+      border-bottom-color: $blip-header-background-color;
+      span {
+        @include span-block(0.5rem, 10px, #DDE3EA);
+        &.span__year {
+          font-size: 14px;
+          color: $section-text-color-main;
+        }
+        &.span__dayandmonth {
+          color: $section-text-color-sub;
+        }
+        &.span__time {
+          color: $section-text-color-subsub;
+        }
+      }
+    }
+    .div__blip__body {
+      width: 100%;
+      height: 2.5rem;
+
+      p {
+        width: calc(100% - 0.4rem);
+        height: calc(100% - 0.4rem);
+        padding: 0.2rem 0.2rem;
+        font-size: 10px;
+        letter-spacing: 1px;
+        overflow-y: scroll;
+      }
+    }
+    .div__blip__ctrlbar {
+      width: 100%;
+      height: 1rem;
+      padding: 0.5rem 0rem;
+      border-top: 1px solid;
+      border-top-color: $blip-header-background-color;
+      @include flexbox(row, nowrap, space-between, center);
+      span {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
     }
   }
-  .div__blip__body {
-    width: 100%;
-    height: 2.5rem;
-    display: table;
-    span {
-      padding: 0.5rem 0.5rem;
-      display: table-cell;
-      font-size: 12px;
-    }
-  }
-  .div__blip__ctrlbar {
-    width: 100%;
-    padding-top: 0.2rem;
-    border-top: 1px solid;
-    border-top-color: $blip-header-background-color;
-    @include flexbox(row, nowrap, space-between, center);
-    span {
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-  }
+
 }

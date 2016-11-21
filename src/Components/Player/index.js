@@ -22,24 +22,25 @@ export default class Player extends Component {
   }
 
   resetPlayback() {
-    let currPos = $(this.refs.slider).position().left;
+    let currPos = $(this.refs.slider).css('left').replace('px', '');
     $(this.refs.slider).css({left: (currPos - this.sliderCurrPos) + 'px'});
     this.sliderCurrPos = 0;
   }
 
   playback() {
-    let left = $(this.refs.slider).position().left + this.sliderMoveBy;
+    let left = parseFloat($(this.refs.slider).css('left').replace('px', '')) + this.sliderMoveBy;
     $(this.refs.slider).css({left: left + 'px'});
     this.sliderCurrPos += this.sliderMoveBy;
-    //console.log(this.sliderCurrPos)
   }
 
   resetAudioTimer() {
     this.audioTimer = 0;
+    $(this.refs.timer).text(0);
   }
 
   showPlaybackTime() {
     this.audioTimer += 0.01;
+    $(this.refs.timer).text(Math.round(this.audioTimer * 100)/100);
     //console.log('Playback time ' + this.audioTimer);
   }
 
@@ -92,30 +93,13 @@ export default class Player extends Component {
     this.getAudio();
   }
 
-  componentDidMounts() {
-    const width = $(this.refs.player).width();
-    const height = $(this.refs.player).height();
-    const mid = parseFloat(height) / 2;
-    //console.log(width, height);
-    let svgContainer = d3.select('.div__player').append('svg')
-      .attrs({
-        'width': width,
-        'height': height
-      });
-    svgContainer.append('path').attrs({
-      d: `M5,${height}L191,${height}`,
-      'stroke': 'red',
-      'stroke-width': '2'
-    });
-  }
-
   render() {
     return (
       <div className="div__player">
         <div ref="progress_bar" className="div__player__progressbar">
           <div ref="slider" className="div__player__slider"></div>
+          <div ref="timer"className="div__progress__timer">{this.audioTimer}</div>
         </div>
-
       </div>
     );
   }
