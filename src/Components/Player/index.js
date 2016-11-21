@@ -35,10 +35,12 @@ export default class Player extends Component {
 
   resetAudioTimer() {
     this.audioTimer = 0;
+    $(this.refs.timer).text(0);
   }
 
   showPlaybackTime() {
     this.audioTimer += 0.01;
+    $(this.refs.timer).text(Math.round(this.audioTimer * 100)/100);
     //console.log('Playback time ' + this.audioTimer);
   }
 
@@ -96,8 +98,8 @@ export default class Player extends Component {
       <div className="div__player">
         <div ref="progress_bar" className="div__player__progressbar">
           <div ref="slider" className="div__player__slider"></div>
+          <div ref="timer"className="div__progress__timer">{this.audioTimer}</div>
         </div>
-
       </div>
     );
   }
