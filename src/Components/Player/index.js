@@ -22,16 +22,15 @@ export default class Player extends Component {
   }
 
   resetPlayback() {
-    let currPos = $(this.refs.slider).position().left;
+    let currPos = $(this.refs.slider).css('left').replace('px', '');
     $(this.refs.slider).css({left: (currPos - this.sliderCurrPos) + 'px'});
     this.sliderCurrPos = 0;
   }
 
   playback() {
-    let left = $(this.refs.slider).position().left + this.sliderMoveBy;
+    let left = parseFloat($(this.refs.slider).css('left').replace('px', '')) + this.sliderMoveBy;
     $(this.refs.slider).css({left: left + 'px'});
     this.sliderCurrPos += this.sliderMoveBy;
-    //console.log(this.sliderCurrPos)
   }
 
   resetAudioTimer() {
@@ -90,23 +89,6 @@ export default class Player extends Component {
       this.audioSource.stop();
     }
     this.getAudio();
-  }
-
-  componentDidMounts() {
-    const width = $(this.refs.player).width();
-    const height = $(this.refs.player).height();
-    const mid = parseFloat(height) / 2;
-    //console.log(width, height);
-    let svgContainer = d3.select('.div__player').append('svg')
-      .attrs({
-        'width': width,
-        'height': height
-      });
-    svgContainer.append('path').attrs({
-      d: `M5,${height}L191,${height}`,
-      'stroke': 'red',
-      'stroke-width': '2'
-    });
   }
 
   render() {
