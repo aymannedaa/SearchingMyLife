@@ -57,9 +57,9 @@ export default class Blip extends Component {
               </span>
             </div>
             <div className="div__blip__body">
-              <span>
+              <p>
                 {this.props.data.transcription}
-              </span>
+              </p>
             </div>
             <div className="div__blip__ctrlbar">
               <span className="span-text-item link" onClick={() => this.showListview('back')}>
