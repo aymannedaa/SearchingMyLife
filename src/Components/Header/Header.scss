@@ -1,12 +1,12 @@
 @import '../../common';
 
-$header-background-color: rgba(68,132,206, 1.0);
+$header-background-color: rgb(123,110,210);
 $header-text-color: rgba(220, 231, 248, 0.9);
 .div__header__container {
   width: 100%;
   @include flexbox(row, nowrap, space-between, center);
   background-color: $header-background-color;
-  height: 3.5rem;
+  height: 3.0rem;
   color: $header-text-color;
   letter-spacing: 3px;
   .div__header__brand {
