@@ -6,7 +6,7 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src', 'app.js');
 const distPath = path.resolve(__dirname, 'dist');
 
-const production = false;
+const production = true;
 
 module.exports = {
   devtool: 'eval',

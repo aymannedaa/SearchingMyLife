@@ -11,6 +11,7 @@ let data = require(__dirname + '/server/data');
 const PORT = 3333;
 const app = express();
 
+app.use('/dist', express.static(__dirname + '/dist'));
 app.use('/audio', express.static(__dirname + '/media/audio'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
