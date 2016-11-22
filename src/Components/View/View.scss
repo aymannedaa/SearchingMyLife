@@ -1,13 +1,15 @@
 @import '../../common';
 
 $empty-text-color: rgba(220,210,212,0.8);
-
+$scrollbar-color: rgba(70, 80, 90, 0.3);
+@include scrollbars(0.3rem, $scrollbar-color);
 .div__content {
     width: 100%;
     height: calc(100% - 7.0rem);
     &.filled {
       @include flexbox(row, wrap, center, flex-start);
       align-content: flex-start;
+      overflow-y: scroll;
     }
     &.empty {
       display: table;

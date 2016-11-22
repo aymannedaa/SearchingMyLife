@@ -6,5 +6,6 @@ $page-background-color: rgba(240, 240, 240, 0.4);
   height: 100%;
   @include flexbox(column, nowrap, space-between, center);
   background-color: $page-background-color;
+  overflow: hidden;
 }
 
