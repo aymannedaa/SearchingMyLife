@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
+import moment from 'moment';
 require('./Listview.scss');
 
 export default class Listview extends Component {
@@ -18,8 +19,20 @@ export default class Listview extends Component {
   render() {
     return (
       <div className="div__listview">
-        <div className="div__listitem__close">
-          <span className="link" onClick={this.props.close}>x</span>
+        <div className="div__listitem__header">
+          <span className="span__direction">
+            {this.props.direction === 'back' ? 'Before' : 'After'}
+          </span>
+          <span>
+            {moment(this.props.timestamp).format('YYYY')}
+          </span>
+          <span>
+            {moment(this.props.timestamp).format('ddd, MMM Do') + ' '}
+          </span>
+          <span>
+            {moment(this.props.timestamp).format('h:mm a') + ' '}
+          </span>
+          <img className="img__close" onClick={this.props.close} src="images/close.svg"></img>
         </div>
         <div className="div__listitem">
           <ul>
