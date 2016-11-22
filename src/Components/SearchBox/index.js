@@ -11,7 +11,7 @@ export default class SearchBox extends Component {
   search(event) {
     const that = this;
     const searchingFor = $(event.target).val();
-    if(event.keyCode === 13) {
+    if(event.keyCode === 13 && searchingFor !== '') {
       $.ajax({
         url: '/search/words/' + searchingFor,
         type: 'GET',
