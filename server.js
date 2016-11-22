@@ -13,6 +13,7 @@ const app = express();
 
 app.use('/dist', express.static(__dirname + '/dist'));
 app.use('/audio', express.static(__dirname + '/media/audio'));
+app.use('/images', express.static(__dirname + '/media/images'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
 if(app.get('env') === 'development') {

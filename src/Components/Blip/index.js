@@ -35,12 +35,13 @@ export default class Blip extends Component {
   showListview(direction) {
     const word = this.props.searchingFor;
     let url = '';
+    let timestamp = null;
     if(direction === 'back') {
-      const timestamp = this.props.data.createdtime;
+      timestamp = this.props.data.createdtime;
       url = '/search/before/' + timestamp;
     }
     else if(direction === 'next') {
-      const timestamp = this.props.data.endtime;
+      timestamp = this.props.data.endtime;
       url = '/search/after/' + timestamp;
     }
     $.ajax({
@@ -49,7 +50,7 @@ export default class Blip extends Component {
     }).done((data) => {
       //store.setData(data);
       //that.props.update();
-      this.setState({listView: true, listData: data});
+      this.setState({listView: true, listData: data, direction: direction, timestamp: timestamp});
     }).fail((err) => {
       console.log(err);
     });
@@ -57,7 +58,7 @@ export default class Blip extends Component {
   }
 
   closeListview() {
-    this.setState({listView: false, listData: null});
+    this.setState({listView: false, listData: null, direction: null, timestamp: null});
   }
 
   playAudio() {
@@ -73,9 +74,7 @@ export default class Blip extends Component {
           <div>
             <div className="div__blip__header">
               <span className="span__year">
-
                 {moment(this.props.data.createdtime).format('YYYY')}
-
               </span>
               <span className="span__dayandmonth">
                 {moment(this.props.data.createdtime).format('ddd, MMM Do') + ' '}
@@ -105,7 +104,12 @@ export default class Blip extends Component {
       }
       else {
         blipView = (
-          <Listview list={this.state.listData} play={this.props.play} close={this.closeListview}></Listview>
+          <Listview
+          list={this.state.listData}
+          play={this.props.play}
+          close={this.closeListview}
+          direction={this.state.direction}
+          timestamp={this.state.timestamp}></Listview>
         );
       }
 
