@@ -18,5 +18,9 @@ $header-text-color: rgba(220, 231, 248, 0.9);
     @include flexbox(row, nowrap, flex-end, center);
     margin: 0 0.5rem;
     font-size: 12px;
+    span a{
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }
