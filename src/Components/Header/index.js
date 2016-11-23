@@ -9,7 +9,6 @@ export default class Header extends Component {
   }
 
   logoutHandler() {
-    console.log('log out')
     $.ajax({
         url: '/logout',
         type: 'GET',

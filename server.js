@@ -60,6 +60,10 @@ app.get('/search/after/:timestamp', (req, res) => {
   res.send(responseData);
 });
 
+app.get('/logout', (req, res) => {
+  console.log('Logout');
+});
+
 var streamAudio = function(req,res) {
     var filePath = __dirname + '/media/audio/file.mp3';
     var stat = fs.statSync(filePath);
