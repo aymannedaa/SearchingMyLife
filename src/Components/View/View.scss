@@ -2,7 +2,7 @@
 
 $empty-text-color: rgba(220,210,212,0.8);
 $scrollbar-color: rgba(70, 80, 90, 0.3);
-@include scrollbars(0.3rem, $scrollbar-color);
+@include scrollbars(0.5rem, $scrollbar-color);
 
 .div__content {
     width: 100%;
