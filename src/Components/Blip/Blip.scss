@@ -39,7 +39,7 @@ $section-text-color-subsub: rgba(75,29,97, 0.6);
     .div__blip__body {
       width: 100%;
       height: 4.5rem;
-      @include scrollbars(0.1rem, $scrollbar-color);
+      @include scrollbars(0.5rem, $scrollbar-color);
       border-left: 0.1rem solid;
       border-top: 0.1rem solid;
       border-bottom: 0.1rem solid;
