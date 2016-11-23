@@ -80,10 +80,11 @@ export default class Player extends Component {
     this.audioContext = new Context();
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps, nextState) {
     const sliderWidth = $(this.refs.progress_bar).width();
-    //console.log(sliderWidth);
-    this.sliderMoveBy = parseFloat(sliderWidth) / 1239;
+    if(nextProps.nowPlaying) {
+      this.sliderMoveBy = parseFloat(sliderWidth) / (nextProps.nowPlaying.duration * 100);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
