@@ -11,8 +11,13 @@ $header-text-color: rgba(220, 231, 248, 0.9);
   letter-spacing: 3px;
   .div__header__brand {
     color: $header-text-color;
-    margin: 0 0.5rem;
+    margin: 0 1rem;
     font-size: 14px;
+    @include flexbox(row, nowrap, center, center);
+    img {
+      @extend .link;
+      height: 24px;
+    }
   }
   .div__header__items {
     @include flexbox(row, nowrap, flex-end, center);
