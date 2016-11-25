@@ -11,7 +11,7 @@ export default class Header extends Component {
     return (
       <div className="div__header__container">
         <div className="div__header__brand">
-          <span className="span-text-item">Searching My Life</span>
+          <img src="images/logo.svg"></img>
         </div>
         <div className="div__header__items">
           {this.props.username} <span className="span-text-item link"><a href="/logout">Logout</a></span>
