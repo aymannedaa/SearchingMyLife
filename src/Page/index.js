@@ -17,7 +17,11 @@ export default class Page extends Component {
   }
 
   displaySearchResults() {
-    this.setState({searchingFor: store.getSearchingFor(), data: store.getData()});
+    this.setState({
+      searchingFor: store.getSearchingFor(),
+      data: store.getData(),
+      nowPlaying: null
+    });
   }
 
   playSelectedAudio(audioMetaData) {
