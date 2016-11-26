@@ -41,7 +41,6 @@ export default class Player extends Component {
   showPlaybackTime() {
     this.audioTimer += 0.01;
     $(this.refs.timer).text(Math.round(this.audioTimer * 100)/100);
-    //console.log('Playback time ' + this.audioTimer);
   }
 
   getAudio() {
