@@ -43,20 +43,25 @@
 }
 
 .div__modal {
+  border: 1px solid lightslategrey;
+  box-shadow: 0 2px 4px 0 lightslategrey;
+  padding: 0.5rem 1rem 1rem 1rem;
   position: fixed;
   top: 10%;
   width: 800px;
   left: calc(50% - 400px);
+  background-color: rgba(231,243,251, 0.8);
   z-index: 3;
   @include flexbox(column, nowrap, flex-start, center);
   margin: 0 auto;
   .div__modal__header {
     width: 100%;
-    background-color: lightgray;
+    background-color: rgba(231,243,251, 0.8);
     @include flexbox(row, nowrap, flex-end, center);
     .close {
       @extend .link;
-      width: 30px;
+      margin: 0 0 0.5rem 0;
+      width: 20px;
     }
   }
   img {
