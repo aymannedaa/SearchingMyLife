@@ -72,7 +72,7 @@ export default class Listview extends Component {
             {this.props.list.map((filename, index) => {
               return <img
                 key={index}
-                src={'/sendImage/' + filename}
+                src={'/sendimage/' + filename}
                 onLoad={this.resizeImage}
                 onClick={openModal}></img>;
             })}
