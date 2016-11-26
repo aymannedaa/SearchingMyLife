@@ -48,5 +48,13 @@ $section-text-color-direction: rgb(138,53,190);
       }
     }
   }
+  .div__image-gallery {
+    @include flexbox(row, wrap, center, center);
+      overflow-y: scroll;
+      img {
+        margin: 0.05rem;
+        opacity: 0.7;
+      }
+  }
 }
 

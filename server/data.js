@@ -93,3 +93,54 @@ module.exports.getData = function(param) {
 
   return data;
 }
+
+module.exports.getImageData = function(param) {
+  let data = [{
+    "filename": "519d1bf9b8d37d1b37eb784470b4c472",
+    "createdtime": "2016-11-19T01:04:34.228Z"
+  }, {
+    "filename":"w13qwqd1bf9b8d1b37eb78447rb43476",
+    "createdtime":"2016-11-19T02:18:32.238Z"
+  }, {
+    "filename":"319d1qwf9b8q3731b3feb78447qb4347",
+    "createdtime":"2016-11-19T02:30:32.242Z"
+  }, {
+    "filename": "519d1bf9b8d37d1b37eb784470b4c472",
+    "createdtime": "2016-11-19T01:04:34.228Z"
+  }, {
+    "filename":"w13qwqd1bf9b8d1b37eb78447rb43476",
+    "createdtime":"2016-11-19T02:18:32.238Z"
+  }, {
+    "filename":"319d1qwf9b8q3731b3feb78447qb4347",
+    "createdtime":"2016-11-19T02:30:32.242Z"
+  }, {
+    "filename": "519d1bf9b8d37d1b37eb784470b4c472",
+    "createdtime": "2016-11-19T01:04:34.228Z"
+  }, {
+    "filename":"w13qwqd1bf9b8d1b37eb78447rb43476",
+    "createdtime":"2016-11-19T02:18:32.238Z"
+  }, {
+    "filename":"319d1qwf9b8q3731b3feb78447qb4347",
+    "createdtime":"2016-11-19T02:30:32.242Z"
+  }, {
+    "filename": "519d1bf9b8d37d1b37eb784470b4c472",
+    "createdtime": "2016-11-19T01:04:34.228Z"
+  }, {
+    "filename":"w13qwqd1bf9b8d1b37eb78447rb43476",
+    "createdtime":"2016-11-19T02:18:32.238Z"
+  }, {
+    "filename":"319d1qwf9b8q3731b3feb78447qb4347",
+    "createdtime":"2016-11-19T02:30:32.242Z"
+  }, {
+    "filename": "519d1bf9b8d37d1b37eb784470b4c472",
+    "createdtime": "2016-11-19T01:04:34.228Z"
+  }, {
+    "filename":"w13qwqd1bf9b8d1b37eb78447rb43476",
+    "createdtime":"2016-11-19T02:18:32.238Z"
+  }, {
+    "filename":"319d1qwf9b8q3731b3feb78447qb4347",
+    "createdtime":"2016-11-19T02:30:32.242Z"
+  }];
+
+  return data;
+}

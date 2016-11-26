@@ -13,6 +13,7 @@ const app = express();
 
 app.use('/dist', express.static(__dirname + '/dist'));
 app.use('/audio', express.static(__dirname + '/media/audio'));
+app.use('/icons', express.static(__dirname + '/media/icons'));
 app.use('/images', express.static(__dirname + '/media/images'));
 app.use('/vendor', express.static(__dirname + '/node_modules'));
 
@@ -58,6 +59,33 @@ app.get('/search/after/:timestamp', (req, res) => {
   let responseData = data.getData();
   console.log(responseData);
   res.send(responseData);
+});
+
+app.get('/search/image/between/:createdtimestamp/:endtimestamp', (req, res) => {
+  let responseData = data.getImageData();
+  console.log(responseData);
+  res.send(responseData);
+});
+
+app.get('/search/image/before/:createdtimestamp/', (req, res) => {
+  let responseData = data.getImageData();
+  console.log(responseData);
+  res.send(responseData);
+});
+
+app.get('/search/image/after/:endtimestamp/', (req, res) => {
+  let responseData = data.getImageData();
+  console.log(responseData);
+  res.send(responseData);
+});
+
+app.get('/sendImage/:filename', (req, res) => {
+  res.type('png');
+  res.sendFile('/media/images/' + 'sample.png', {root: __dirname});
+  //let img = fs.readFileSync(__dirname + '/media/images/' + 'sample.png');
+  //res.writeHead(200, {'Content-Type': 'image/png' });
+  //res.end(img, 'binary');
+  //fs.createReadStream(__dirname + '/media/images/' + 'sample.png', 'utf-8').pipe(res);
 });
 
 app.get('/logout', (req, res) => {
