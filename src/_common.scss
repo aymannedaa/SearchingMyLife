@@ -38,6 +38,31 @@
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.div__modal {
+  position: fixed;
+  top: 10%;
+  width: 800px;
+  left: calc(50% - 400px);
+  z-index: 3;
+  @include flexbox(column, nowrap, flex-start, center);
+  margin: 0 auto;
+  .div__modal__header {
+    width: 100%;
+    background-color: lightgray;
+    @include flexbox(row, nowrap, flex-end, center);
+    .close {
+      @extend .link;
+      width: 30px;
+    }
+  }
+  img {
+    width: 800px;
+  }
+}
 
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  0%)) {
   // For Google Chrome
