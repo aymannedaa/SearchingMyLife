@@ -166,7 +166,7 @@ export default class Blip extends Component {
                     {this.state.imageFilenames.map((filename, index) => {
                       return <img
                         key={index}
-                        src={'/sendImage/' + filename}
+                        src={'/sendimage/' + filename}
                         onLoad={this.resizeImage}
                         onClick={openModal}></img>;
                     })}
